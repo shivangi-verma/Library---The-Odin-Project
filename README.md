@@ -1,7 +1,9 @@
 # 📚 Library App
 
+👉 **[Live Demo](https://shivangi-verma.github.io/Library---The-Odin-Project/)**  
+
 A simple JavaScript library app built as part of [The Odin Project](https://www.theodinproject.com) curriculum.  
-Users can add, display, update, and remove books from their personal library.  
+Users can add, display, update, and remove books from their personal library.
 
 ---
 
@@ -22,9 +24,21 @@ Users can add, display, update, and remove books from their personal library.
 
 ---
 
-## 📸 Demo
-👉 [Live Demo](https://shivangi-verma.github.io/Library---The-Odin-Project/)
+## 📂 Project Structure
+- `index.html` — Main HTML structure  
+- `style.css` — App styling  
+- `script.js` — All JavaScript logic  
 
 ---
 
-## 📂 Project Structure
+## 🧠 What I Learned
+- DOM manipulation & event handling  
+- Constructor functions in JS  
+- Using `dataset` attributes for mapping data to UI  
+- Preventing default form behavior (`event.preventDefault()`)
+
+---
+
+## 🙌 Acknowledgements
+Built as part of [The Odin Project](https://www.theodinproject.com) JavaScript curriculum.
+
