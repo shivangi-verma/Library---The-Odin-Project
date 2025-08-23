@@ -23,7 +23,7 @@ Users can add, display, update, and remove books from their personal library.
 ---
 
 ## 📸 Demo
-👉 [Live Demo](#) _(replace with your GitHub Pages link if deployed)_
+👉 [Live Demo](https://shivangi-verma.github.io/Library---The-Odin-Project/)
 
 ---
 
