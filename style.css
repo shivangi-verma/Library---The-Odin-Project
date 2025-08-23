@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+/* Reset & Base */
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #f5f7fa;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Reset everything except checkboxes and radios */
+input:not([type="checkbox"]):not([type="radio"]) {
+  appearance: none;
+  border-radius: 0;
+}
+
+/* -------------------------------
+   Card (Form Style)
+-------------------------------- */
+.card {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 425px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+  padding: 0.75rem;
+}
+
+.card-image {
+  border-radius: 8px;
+  overflow: hidden;
+  padding-bottom: 65%;
+  background-image: url("https://assets.codepen.io/285131/coffee_1.jpg");
+  background-repeat: no-repeat;
+  background-size: 150%;
+  background-position: 0 5%;
+  position: relative;
+}
+
+.card-heading {
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  right: 10%;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #735400;
+  line-height: 1.222;
+}
+
+.card-heading small {
+  display: block;
+  font-size: 0.75em;
+  font-weight: 400;
+  margin-top: 0.25em;
+}
+
+.card-form {
+  padding: 1rem; /* reduced padding */
+}
+
+.input {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  padding-top: 1.2rem; /* tighter spacing */
+  margin-top: 0.75rem; /* consistent spacing */
+}
+
+.input-label {
+  color: #8597a3;
+  position: absolute;
+  top: 1.5rem;
+  transition: 0.25s ease;
+}
+
+.input-field {
+  border: 0;
+  z-index: 1;
+  background-color: transparent;
+  border-bottom: 2px solid #eee;
+  font: inherit;
+  font-size: 1.125rem;
+  padding: 0.25rem 0;
+}
+
+.input-field:focus,
+.input-field:valid {
+  outline: 0;
+  border-bottom-color: #6658d3;
+}
+
+.input-field:focus + .input-label,
+.input-field:valid + .input-label {
+  color: #6658d3;
+  transform: translateY(-1.5rem);
+}
+
+.action {
+  margin-top: 1rem; /* less space between buttons */
+}
+
+.action-button {
+  font: inherit;
+  font-size: 1.1rem;
+  padding: 0.75em;
+  width: 100%;
+  font-weight: 500;
+  background-color: #6658d3;
+  border-radius: 6px;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+}
+
+.action-button:focus {
+  outline: 0;
+}
+
+.card-info {
+  padding: 1rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #8597a3;
+}
+
+.card-info a {
+  display: block;
+  color: #6658d3;
+  text-decoration: none;
+}
+
+/* -------------------------------
+   Heading & Table
+-------------------------------- */
+h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #654caf;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+#library {
+  max-width: 800px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+th {
+  background-color: #654caf;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* -------------------------------
+   Buttons
+-------------------------------- */
+
+.primary-btn {
+  display: block;
+  margin: 20px auto;
+  background-color: #654caf;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.primary-btn:hover {
+  background-color: #654caf;
+  transform: translateY(-2px);
+}
+
+.primary-btn:active {
+  background-color: #654caf;
+  transform: translateY(0);
+}
+
+.secondary-btn {
+  background-color: #dad4ed; /* light gray */
+  color: #111827;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #654caf;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  width: -webkit-fill-available;
+}
+
+.secondary-btn:hover {
+  background-color: #c3b7ea; /* slightly darker gray */
+}
+
+.cancel-btn {
+  background: #aaa;
+}
+
+.cancel-btn:hover {
+  background-color: #515050;
+}
+.fixed-width {
+  min-width: 150px;
+  max-width: 150px;
+}
+
+/* -------------------------------
+   Modal
+-------------------------------- */
+.container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* dark overlay */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.hidden {
+  display: none;
+}
+.container.show {
+  display: flex;
+}
+
+/* Checkbox alignment */
+.checkbox-input {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between checkbox and label */
+  margin-top: 1rem;
+}
+
+.checkbox-input input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #6658d3; /* styled checkbox color */
+  cursor: pointer;
+}
+
+.checkbox-label {
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+}

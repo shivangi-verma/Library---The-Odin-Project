@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odin Project JS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>My Library</h1>
+
+    <div id="library">
+      <table id="table">
+        <th>Name</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>Read</th>
+        <th>Remove</th>
+        <th>Read Status</th>
+      </table>
+    </div>
+
+    <button id="btnNewBook" class="primary-btn">New Book</button>
+
+    <!-- Book Form Modal -->
+    <div id="bookModal" class="container hidden">
+      <div class="card">
+        <div class="card-image">
+          <h2 class="card-heading">
+            Add a New Book
+            <small>Fill in the details below</small>
+          </h2>
+        </div>
+
+        <form class="card-form" id="bookForm">
+          <div class="input">
+            <input type="text" id="bookName" class="input-field" required />
+            <label class="input-label">Book Name</label>
+          </div>
+          <div class="input">
+            <input type="text" id="bookAuthor" class="input-field" required />
+            <label class="input-label">Author</label>
+          </div>
+          <div class="input">
+            <input type="number" id="bookPages" class="input-field" required />
+            <label class="input-label">Pages</label>
+          </div>
+          <!-- Checkbox aligned properly -->
+          <div class="checkbox-input">
+            <input type="checkbox" id="bookRead" />
+            <label for="bookRead" class="checkbox-label">Already Read?</label>
+          </div>
+
+          <div class="action">
+            <button
+              type="submit"
+              class="action-button primary-btn"
+              id="addBookBtn"
+            >
+              Add Book
+            </button>
+          </div>
+
+          <div class="action">
+            <button
+              type="button"
+              id="closeBookModal"
+              class="action-button cancel-btn"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
