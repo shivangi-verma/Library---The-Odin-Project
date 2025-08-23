@@ -1,95 +1,93 @@
 const myLibrary = [];
 
-function Book(name, author, pages, read){
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.id = crypto.randomUUID();
+function Book(name, author, pages, read) {
+  this.name = name;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+  this.id = crypto.randomUUID();
 }
 
-function addBookToLibrary(book){
-    myLibrary.push(book);
+function addBookToLibrary(book) {
+  myLibrary.push(book);
 }
 
 Book.prototype.toggleRead = function () {
-    this.read = !this.read;
-  };
- 
-addBookToLibrary(new Book('The Hobbit', 'J.R.R. Tolkien', 310, true));
-addBookToLibrary(new Book('1984', 'George Orwell', 328, false));
-addBookToLibrary(new Book('Clean Code', 'Robert C. Martin', 464, false));
-addBookToLibrary(new Book('The Pragmatic Programmer', 'Andrew Hunt', 352, true));
+  this.read = !this.read;
+};
 
-function displayBooks(){
-    const table = document.getElementById("table");
+addBookToLibrary(new Book("The Hobbit", "J.R.R. Tolkien", 310, true));
+addBookToLibrary(new Book("1984", "George Orwell", 328, false));
+addBookToLibrary(new Book("Clean Code", "Robert C. Martin", 464, false));
+addBookToLibrary(
+  new Book("The Pragmatic Programmer", "Andrew Hunt", 352, true)
+);
 
-    // ✅ clear all rows except the header
-    table.querySelectorAll("tr:not(:first-child)").forEach(tr => tr.remove());
+function displayBooks() {
+  const table = document.getElementById("table");
 
-    const fragment = document.createDocumentFragment();
+  // ✅ clear all rows except the header
+  table.querySelectorAll("tr:not(:first-child)").forEach((tr) => tr.remove());
 
-    myLibrary.forEach(book => {
-        const tr = document.createElement("tr");
+  const fragment = document.createDocumentFragment();
 
-        const td1 = document.createElement("td");
-        td1.textContent = book.name;
-        tr.appendChild(td1);
+  myLibrary.forEach((book) => {
+    const tr = document.createElement("tr");
 
-        const td2 = document.createElement("td");
-        td2.textContent = book.author;
-        tr.appendChild(td2);
+    const td1 = document.createElement("td");
+    td1.textContent = book.name;
+    tr.appendChild(td1);
 
-        const td3 = document.createElement("td");
-        td3.textContent = book.pages;
-        tr.appendChild(td3);
+    const td2 = document.createElement("td");
+    td2.textContent = book.author;
+    tr.appendChild(td2);
 
-        const td4 = document.createElement("td");
-        td4.textContent = book.read ? "Yes" : "No";
-        tr.appendChild(td4);
+    const td3 = document.createElement("td");
+    td3.textContent = book.pages;
+    tr.appendChild(td3);
 
-        const td5 = document.createElement("td");
-        const td5removeBtn = document.createElement("button")
-        td5removeBtn.setAttribute("class","secondary-btn")
-        td5removeBtn.innerHTML = "Remove"
-        td5removeBtn.setAttribute("id", book.id)
-        td5removeBtn.addEventListener("click", () => removeBook(book.id))
-        td5.appendChild(td5removeBtn)
-        tr.appendChild(td5);
+    const td4 = document.createElement("td");
+    td4.textContent = book.read ? "Yes" : "No";
+    tr.appendChild(td4);
 
-        const td6 = document.createElement("td");
-        const td6toggleBtn = document.createElement("button")
-        td6toggleBtn.setAttribute("class","secondary-btn fixed-btn") 
-        td6toggleBtn.textContent = book.read? "Mark Unread" : "Mark Read"
-        td6toggleBtn.addEventListener("click", ()=>{
-            book.toggleRead();
-            displayBooks();
-        })
-        td6.appendChild(td6toggleBtn)
-        tr.appendChild(td6)
-
-        
-
-        fragment.appendChild(tr);
+    const td6 = document.createElement("td");
+    const td6toggleBtn = document.createElement("button");
+    td6toggleBtn.setAttribute("class", "secondary-btn fixed-btn");
+    td6toggleBtn.textContent = book.read ? "Mark Unread" : "Mark Read";
+    td6toggleBtn.addEventListener("click", () => {
+      book.toggleRead();
+      displayBooks();
     });
+    td6.appendChild(td6toggleBtn);
+    tr.appendChild(td6);
 
-    table.appendChild(fragment);
+    const td5 = document.createElement("td");
+    const td5removeBtn = document.createElement("div");
+    td5removeBtn.setAttribute("class", " trash ");
+    td5removeBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentcolor" viewBox="0 0 256 256"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM112,168a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm0-120H96V40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8Z"></path></svg>`;
+    td5removeBtn.setAttribute("id", book.id);
+    td5removeBtn.addEventListener("click", () => removeBook(book.id));
+    td5.appendChild(td5removeBtn);
+    tr.appendChild(td5);
+
+    fragment.appendChild(tr);
+  });
+
+  table.appendChild(fragment);
 }
-
 
 displayBooks();
 
- // ✅ make this a normal function, outside of displayBooks
- function removeBook(id) {
-    // reassign myLibrary to exclude the book
-    const index = myLibrary.findIndex(book => book.id === id);
-    if (index !== -1) {
+// ✅ make this a normal function, outside of displayBooks
+function removeBook(id) {
+  // reassign myLibrary to exclude the book
+  const index = myLibrary.findIndex((book) => book.id === id);
+  if (index !== -1) {
     myLibrary.splice(index, 1); // remove that book
-    }
+  }
 
-    displayBooks(); // refresh the UI
+  displayBooks(); // refresh the UI
 }
-
 
 const btnNewBook = document.getElementById("btnNewBook");
 const container = document.querySelector(".container");
@@ -106,29 +104,27 @@ container.addEventListener("click", (e) => {
   }
 });
 // Optional: close modal when clicking cancel button
-  const closeBookModal = document.getElementById("closeBookModal")
-  closeBookModal.addEventListener("click",cancelFormHandler)
-  function cancelFormHandler(){
-    container.classList.remove("show");
-    console.log("cancel clicked");
-  }
+const closeBookModal = document.getElementById("closeBookModal");
+closeBookModal.addEventListener("click", cancelFormHandler);
+function cancelFormHandler() {
+  container.classList.remove("show");
+  console.log("cancel clicked");
+}
 
-const bookForm = document.getElementById("bookForm")
-bookForm.addEventListener("submit",addBookHandler)
+const bookForm = document.getElementById("bookForm");
+bookForm.addEventListener("submit", addBookHandler);
 
 function addBookHandler(e) {
-    e.preventDefault();
-  
-    const bookName = document.getElementById("bookName").value;
-    const bookAuthor = document.getElementById("bookAuthor").value;    
-    const bookPages = document.getElementById("bookPages").value;    
-    const bookRead = document.getElementById("bookRead").checked;
-  
-    addBookToLibrary(new Book(bookName, bookAuthor, bookPages, bookRead));
-  
-    displayBooks();
-    bookForm.reset();
-    container.classList.remove("show"); // ✅ optional: close modal after adding
-  }
-  
-  
+  e.preventDefault();
+
+  const bookName = document.getElementById("bookName").value;
+  const bookAuthor = document.getElementById("bookAuthor").value;
+  const bookPages = document.getElementById("bookPages").value;
+  const bookRead = document.getElementById("bookRead").checked;
+
+  addBookToLibrary(new Book(bookName, bookAuthor, bookPages, bookRead));
+
+  displayBooks();
+  bookForm.reset();
+  container.classList.remove("show"); // ✅ optional: close modal after adding
+}

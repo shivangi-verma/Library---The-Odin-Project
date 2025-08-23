@@ -262,6 +262,24 @@ tr:hover {
   max-width: 150px;
 }
 
+.trash{
+  
+    display: flex;
+    align-content: center;
+    justify-content: center; 
+    background-color: transparent;
+}
+.trash svg {
+  transition: fill 0.2s ease-in-out;
+}
+
+.trash svg:hover {
+  fill: #483080; /* a slightly darker shade of your primary (#654caf) */
+  cursor: pointer;
+  transition: fill 0.2s ease-in-out;
+  transform: scale(1.2);
+}
+
 /* -------------------------------
    Modal
 -------------------------------- */
