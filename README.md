@@ -2,6 +2,8 @@
 
 👉 **[Live Demo](https://shivangi-verma.github.io/Library---The-Odin-Project/)**  
 
+![Library App Demo](./Library%20-%20The%20Odin%20Project%20gif.gif)
+
 A simple JavaScript library app built as part of [The Odin Project](https://www.theodinproject.com) curriculum.  
 Users can add, display, update, and remove books from their personal library.
 
@@ -41,4 +43,3 @@ Users can add, display, update, and remove books from their personal library.
 
 ## 🙌 Acknowledgements
 Built as part of [The Odin Project](https://www.theodinproject.com) JavaScript curriculum.
-
